@@ -4,10 +4,10 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-var lowCharSet = "abcdefghijklmnop"
-var upCharSet = "ABCDEFGHIJKALMNOP"
+var lowCharSet = "abcdefghijklmnopqrstuvwxyz"
+var upCharSet = "ABCDEFGHIJKALMNOPQRSTUVWXYZ"
 var numSet = "0123456789"
-var specialSet = "!@#$%^&*?/,.()"
+var specialSet = "!@#$%^&*?/,.()<>"
 
 // Write password to the #password input
 function writePassword() {
@@ -16,20 +16,20 @@ function writePassword() {
   passwordText.value = password;
   
 }
-
+// Generate password function
 function generatePassword () {
   var character = prompt("How many characters do you want?")
   
   var length = character;
-  
+  //check if password length is between 8 and 128
   if (character < 8 &&  character < 128) {
     character = prompt("Your password must be between 8 and 128 characters")
   }
 
   else
-    var confirmLower = confirm("Do you want lowercase letters?");
+    var confirmLower = confirm("Do you want  the password to contain lowercase letters?");
 
-    var confirmUpper = confirm("Do you want uppercase letters?");
+    var confirmUpper = confirm("Do you want the password to contain uppercase letters?");
 
     var confirmNum = confirm("Do you want the password to contain numbers?");
 
@@ -50,13 +50,14 @@ function generatePassword () {
     if (confirmSpecial)  {
       password = password +confirmSpecial
     }
+    //var actualPassword = password;
 
   for (let index = 0; index < length; index++) {
-    var randomIndex = math.floor(Math.random() * password.length)
+    var randomIndex = Math.floor(Math.random() * password.length)
     actualPassword += password.charAt(randomIndex);
     
   }
-  
+  return password
 
 
 }
