@@ -4,6 +4,7 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//password character sets
 var lowCharSet = "abcdefghijklmnopqrstuvwxyz"
 var upCharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numSet = "0123456789"
@@ -22,7 +23,7 @@ function generatePassword () {
   var actualPassword = "";
   
   var character = prompt("How many characters do you want?")
-  //var passLength = character.length;
+
   //check if password length is between 8 and 128
   while (character < 8 || character > 128) {
     character = prompt("Your password must be between 8 and 128 characters")
