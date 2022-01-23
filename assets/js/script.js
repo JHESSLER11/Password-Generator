@@ -5,7 +5,7 @@
 var generateBtn = document.querySelector("#generate");
 
 var lowCharSet = "abcdefghijklmnopqrstuvwxyz"
-var upCharSet = "ABCDEFGHIJKALMNOPQRSTUVWXYZ"
+var upCharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numSet = "0123456789"
 var specialSet = "!@#$%^&*?/,.()<>"
 
@@ -35,6 +35,7 @@ function generatePassword () {
   var confirmNum = confirm("Do you want the password to contain numbers?");
   
   var confirmSpecial  = confirm("Do you want the password to contain special characters?")
+
   //determine which characters are added to the password based on the confirm inputs
   if (confirmLower) {
     password = password + lowCharSet
@@ -52,22 +53,19 @@ function generatePassword () {
     password = password + specialSet
   }
 
-  //if (password = '') {
-  //  password = prompt("You must select one character type")
-  //}
+  if (password == "") {
+      password = alert("You must select one character type, Try again!")
+  }
 
-  //else {
-  console.log(password)
-  //var length = character.length
-  // generates password text
+  else {
+    // generates password text by looping through
   for (let index = 0; index < character; index++) {
-    //actualPassword += password[Math.floor(Math.random() * password.length)]
     var randomIndex = [Math.floor(Math.random() *  password.length)]
     actualPassword += password.charAt(randomIndex)
-    
+      
   }
-//}
-console.log(actualPassword)
+  }
+// generates password in box
 return actualPassword;
 
 }
