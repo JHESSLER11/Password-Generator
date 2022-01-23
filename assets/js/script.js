@@ -18,7 +18,7 @@ function writePassword() {
 }
 // Generate password function
 function generatePassword () {
-  var password = [];
+  var password = "";
   var actualPassword = "";
   
   var character = prompt("How many characters do you want?")
@@ -51,14 +51,23 @@ function generatePassword () {
   if (confirmSpecial)  {
     password = password + specialSet
   }
+
+  //if (password = '') {
+  //  password = prompt("You must select one character type")
+  //}
+
+  //else {
   console.log(password)
-  var length = character.length
-  
-  for (let index = 0; index < length; index++) {
-    var randomIndex = Math.floor(Math.random() *  password.length);
+  //var length = character.length
+  // generates password text
+  for (let index = 0; index < character; index++) {
+    //actualPassword += password[Math.floor(Math.random() * password.length)]
+    var randomIndex = [Math.floor(Math.random() *  password.length)]
     actualPassword += password.charAt(randomIndex)
     
   }
+//}
+console.log(actualPassword)
 return actualPassword;
 
 }
